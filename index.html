@@ -12,61 +12,112 @@
   --stroke:rgba(255,255,255,0.14); --text:#e2e8f0; --muted:#94a3b8;
   --accent:#38bdf8; --accent2:#6366f1;
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
 body{
-  margin:0; font-family:"Space Grotesk",sans-serif; color:var(--text);
+  margin:0;
+  font-family:"Space Grotesk",sans-serif;
+  font-size:22px;
+  color:var(--text);
   background:radial-gradient(circle at 20% 10%, #0b1220, var(--bg1) 40%),
              linear-gradient(180deg, var(--bg2), var(--bg1));
 }
 
-.nav{position:sticky; top:0; z-index:10; backdrop-filter: blur(10px);
-  background:rgba(2,6,23,0.7); border-bottom:1px solid var(--stroke)}
-.nav .inner{max-width:1300px; margin:auto; padding:18px 30px; display:flex; justify-content:space-between; align-items:center}
-.menu a{color:var(--muted); margin-left:22px; text-decoration:none; font-size:16px}
+.nav{position:sticky;top:0;background:rgba(2,6,23,0.8);border-bottom:1px solid var(--stroke)}
+
+.nav .inner{
+  max-width:1600px;
+  margin:auto;
+  padding:25px 60px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.menu a{
+  font-size:20px;
+  margin-left:30px;
+  color:var(--muted);
+  text-decoration:none;
+}
+
 .menu a:hover{color:#fff}
 
-.section{max-width:1300px; margin:auto; padding:90px 30px}
+.section{
+  max-width:1600px;
+  margin:auto;
+  padding:120px 60px;
+}
 
-.hero{text-align:center; padding:120px 20px}
-.hero h1{font-size:72px; margin:0;
+.hero{
+  text-align:center;
+  padding:160px 20px;
+}
+
+.hero h1{
+  font-size:110px;
+  margin:0;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text; color:transparent}
-.hero p{color:var(--muted); font-size:22px; margin-top:10px}
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-/* BUTTONS */
-.btns{margin-top:30px}
+.hero p{font-size:30px;color:var(--muted)}
+
 .btn{
-  display:inline-block;
-  padding:14px 28px;
-  border-radius:12px;
+  padding:20px 40px;
+  font-size:20px;
   border:1px solid var(--accent);
+  border-radius:12px;
   color:var(--accent);
-  margin:8px;
   text-decoration:none;
-  font-size:16px;
+  margin:10px;
+  display:inline-block;
+}
+
+.btn:hover{background:var(--accent);color:#000}
+
+.card{
+  padding:35px;
+  border-radius:20px;
+  background:var(--glass);
+  border:1px solid var(--stroke);
+  text-align:center;
+}
+
+/* ICON GRID */
+.icons{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.icon-card{
+  background:var(--glass);
+  border:1px solid var(--stroke);
+  border-radius:20px;
+  padding:25px;
   transition:0.3s;
 }
-.btn:hover{
-  background:var(--accent);
-  color:#000;
+
+.icon-card:hover{
+  transform:scale(1.08);
   box-shadow:0 0 20px rgba(56,189,248,0.4);
 }
 
-.card{background:var(--glass); border:1px solid var(--stroke);
-  border-radius:22px; padding:30px; backdrop-filter: blur(16px);
-  transition:.3s}
-.card:hover{transform:translateY(-10px); box-shadow:0 0 30px rgba(56,189,248,.3)}
+.icon-card img{
+  width:90px;
+  height:90px;
+  object-fit:contain;
+}
 
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(400px,1fr)); gap:30px}
+.icon-card p{
+  margin-top:10px;
+  font-size:16px;
+}
 
-.tags{display:flex; flex-wrap:wrap; gap:12px}
-.tag{background:#1e293b; padding:10px 16px; border-radius:12px; font-size:15px}
-
-ul{padding-left:20px}
-li{margin-bottom:10px; color:var(--muted); font-size:15px}
-
-footer{text-align:center; color:var(--muted); padding:50px; font-size:14px}
+footer{text-align:center;padding:60px;color:var(--muted)}
 </style>
 </head>
 
@@ -74,12 +125,10 @@ footer{text-align:center; color:var(--muted); padding:50px; font-size:14px}
 
 <nav class="nav">
 <div class="inner">
-<div><b style="font-size:20px">Sumit Shimpale</b></div>
+<div><b style="font-size:28px">Sumit Shimpale</b></div>
 <div class="menu">
 <a href="#summary">Summary</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#education">Education</a>
+<a href="#tools">Tools</a>
 </div>
 </div>
 </nav>
@@ -89,104 +138,80 @@ footer{text-align:center; color:var(--muted); padding:50px; font-size:14px}
 <p>DevOps & Middleware Engineer • AWS • Kubernetes • CI/CD</p>
 <p>Pune | +91-9359069445 | sumitshimpale@gmail.com</p>
 
-<div class="btns">
+<div style="margin-top:40px">
 <a class="btn" href="https://github.com/sumitshimpale" target="_blank">GitHub</a>
 <a class="btn" href="https://www.linkedin.com/in/sumit-shimpale/" target="_blank">LinkedIn</a>
 </div>
 </section>
 
+<!-- TOOLS SECTION WITH IMAGES -->
+<section class="section" id="tools">
+<h2 style="font-size:50px">⚙️ DevOps Tools</h2>
+
+<div class="icons">
+
+<div class="icon-card">
+<img src="images/docker.png"><p>Docker</p>
+</div>
+
+<div class="icon-card">
+<img src="images/kubernetes.png"><p>Kubernetes</p>
+</div>
+
+<div class="icon-card">
+<img src="images/aws.png"><p>AWS</p>
+</div>
+
+<div class="icon-card">
+<img src="images/terraform.png"><p>Terraform</p>
+</div>
+
+<div class="icon-card">
+<img src="images/ansible.png"><p>Ansible</p>
+</div>
+
+<div class="icon-card">
+<img src="images/github.png"><p>GitHub</p>
+</div>
+
+<div class="icon-card">
+<img src="images/grafana.png"><p>Grafana</p>
+</div>
+
+<div class="icon-card">
+<img src="images/Prometheus.png"><p>Prometheus</p>
+</div>
+
+<div class="icon-card">
+<img src="images/jboss.png"><p>JBoss</p>
+</div>
+
+<div class="icon-card">
+<img src="images/kafka.png"><p>Kafka</p>
+</div>
+
+<div class="icon-card">
+<img src="images/weblogic.png"><p>WebLogic</p>
+</div>
+
+<div class="icon-card">
+<img src="images/1721662869-20240722-was-img.jpeg"><p>WebSphere</p>
+</div>
+
+</div>
+</section>
+
 <section class="section" id="summary">
 <div class="card">
-<h2 style="font-size:28px">🧾 Summary</h2>
-<p style="font-size:18px">
-DevOps & Middleware Engineer with 4+ years of experience in CI/CD, infrastructure automation, and AWS cloud operations.
-Skilled in Docker, Kubernetes, Terraform, and enterprise middleware platforms like WebSphere, JBoss, WebLogic, and Tomcat.
-Proven ability to optimize performance, automate deployments, and maintain highly available systems.
+<h2 style="font-size:40px">Summary</h2>
+<p style="font-size:22px">
+DevOps & Middleware Engineer with 4+ years of experience in CI/CD, automation, and AWS.
 </p>
 </div>
 </section>
 
-<section class="section" id="skills">
-<div class="grid">
-<div class="card">
-<h3>⚡ DevOps</h3>
-<div class="tags">
-<span class="tag">Jenkins</span><span class="tag">GitHub Actions</span>
-<span class="tag">Docker</span><span class="tag">Kubernetes</span>
-<span class="tag">Terraform</span><span class="tag">Git</span>
-</div>
-</div>
-
-<div class="card">
-<h3>☁️ Cloud</h3>
-<div class="tags">
-<span class="tag">AWS EC2</span><span class="tag">EKS</span>
-<span class="tag">S3</span><span class="tag">EBS</span>
-<span class="tag">ELB</span><span class="tag">CloudWatch</span>
-</div>
-</div>
-
-<div class="card">
-<h3>🧠 Middleware</h3>
-<div class="tags">
-<span class="tag">WebSphere</span><span class="tag">JBoss</span>
-<span class="tag">WebLogic</span><span class="tag">Tomcat</span>
-<span class="tag">IBM MQ</span>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section" id="experience">
-<div class="grid">
-<div class="card">
-<h3>🚀 Worldpay (2025–Present)</h3>
-<ul>
-<li>CI/CD using Jenkins & GitHub Actions</li>
-<li>Docker + Kubernetes deployments</li>
-<li>AWS infra via Terraform</li>
-<li>Monitoring using Prometheus & Grafana</li>
-<li>Handled production incidents (OOM, MQ, CPU)</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>🏢 TCS (2021–2025)</h3>
-<ul>
-<li>WebSphere, JBoss, MQ administration</li>
-<li>JVM tuning & RCA analysis</li>
-<li>Shell scripting automation</li>
-<li>Jenkins deployments</li>
-<li>Handled critical production issues</li>
-</ul>
-</div>
-</div>
-</section>
-
-<section class="section" id="education">
-<div class="grid">
-<div class="card">
-<h3>🎓 Education</h3>
-<ul>
-<li>B.E Civil Engineering – Sinhgad Institute, Pune</li>
-<li>Diploma – Vishweshwarayya Polytechnic</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>🏆 Certifications</h3>
-<ul>
-<li>AWS Cloud Practitioner</li>
-<li>IBM WebSphere Training</li>
-<li>IBM MQ Admin</li>
-<li>Apache Kafka Training</li>
-</ul>
-</div>
-</div>
-</section>
-
 <footer>
-Built with ⚡ by Sumit Shimpale • DevOps Portfolio
+Built with ⚡ by Sumit Shimpale
 </footer>
 
 </body>
