@@ -1,222 +1,112 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sumit • DevOps Engineer</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-
+<title>DevOps Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-
-:root{
---bg:#0b0f17;
---card:#0f1625cc;
---stroke:#1f2a40;
---text:#e7eefc;
---muted:#a9b4cc;
---brand:#ff7a18;
---brand2:#ffb703;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
 }
-
-body{
-margin:0;
-font-family:"Space Grotesk",sans-serif;
-background:#070b12;
-color:var(--text);
-display:flex;
-justify-content:center;
-padding:30px;
+header {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #1e293b, #020617);
 }
-
-.wrap{
-max-width:950px;
-width:100%;
-display:grid;
-gap:20px;
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
-
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
+header p {
+  color: #94a3b8;
 }
-
-.brand{
-display:flex;
-align-items:center;
-gap:10px;
-color:var(--muted);
+.section {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
-
-.dot{
-width:10px;
-height:10px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--brand),var(--brand2));
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
 }
-
-.hero{
-border:1px solid var(--stroke);
-padding:30px;
-border-radius:18px;
-background:#111827;
+.skill-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
 }
-
-.hero h1{
-margin:0;
-font-size:40px;
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: #334155;
 }
-
-.hero span{
-background:linear-gradient(90deg,var(--brand),var(--brand2));
--webkit-background-clip:text;
-color:transparent;
+.skill-card img {
+  width: 50px;
+  margin-bottom: 10px;
 }
-
-.hero h2{
-font-size:18px;
-color:var(--muted);
+.experience {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  line-height: 1.6;
 }
-
-.grid{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:18px;
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  color: #64748b;
 }
-
-.card{
-background:#111827;
-border:1px solid var(--stroke);
-border-radius:18px;
-padding:20px;
-}
-
-.list{
-list-style:none;
-padding:0;
-display:grid;
-gap:10px;
-}
-
-.item{
-background:#1f2937;
-padding:12px;
-border-radius:12px;
-}
-
-footer{
-text-align:center;
-color:var(--muted);
-font-size:12px;
-margin-top:10px;
-}
-
 </style>
-
 </head>
-
 <body>
 
-<main class="wrap">
+<header>
+  <h1>Sumit | DevOps & Middleware Engineer</h1>
+  <p>CI/CD | Kubernetes | AWS | Automation | Middleware Expert</p>
+</header>
 
-<div class="topbar">
-<div class="brand">
-<span class="dot"></span>
-<span>DevOps Portfolio</span>
-</div>
-<div>DevOps • Automation • Middleware</div>
-</div>
-
-<section class="hero">
-<h1>Hello I'm <span>Sumit</span> 👋</h1>
-
-<h2>
-DevOps & Middleware Engineer with experience in enterprise
-payment systems, automation and Linux infrastructure.
-</h2>
-
+<section class="section">
+  <h2>Skills & Tools</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><img src="/mnt/data/docker.png"><p>Docker</p></div>
+    <div class="skill-card"><img src="/mnt/data/github-removebg-preview.webp"><p>GitHub</p></div>
+    <div class="skill-card"><img src="/mnt/data/aws.webp"><p>AWS</p></div>
+    <div class="skill-card"><img src="/mnt/data/teraform.webp"><p>Terraform</p></div>
+    <div class="skill-card"><img src="/mnt/data/Kubernetes.webp"><p>Kubernetes</p></div>
+  </div>
 </section>
 
-<section class="grid">
-
-<div class="card">
-<h3>⚡ Skills & Expertise</h3>
-
-<ul class="list">
-
-<li class="item">
-<b>Middleware Administration</b><br>
-Apache HTTP, Tomcat, IBM WebSphere, WebLogic
-</li>
-
-<li class="item">
-<b>DevOps & Automation</b><br>
-Jenkins pipelines, Shell scripting automation
-</li>
-
-<li class="item">
-<b>Linux Infrastructure</b><br>
-Server management, deployments, patching
-</li>
-
-<li class="item">
-<b>Security & Integration</b><br>
-SSL configuration, LDAP integration
-</li>
-
-<li class="item">
-<b>Monitoring & Troubleshooting</b><br>
-JVM tuning, thread dump & heap dump analysis
-</li>
-
-<li class="item">
-<b>Messaging Systems</b><br>
-IBM WebSphere MQ administration
-</li>
-
-</ul>
-</div>
-
-<div class="card">
-
-<h3>🚀 Experience</h3>
-
-<ul class="list">
-
-<li class="item">
-<b>Worldpay</b><br>
-DevOps Engineer (Payments domain)
-</li>
-
-<li class="item">
-<b>TCS</b><br>
-Middleware & DevOps Engineer
-</li>
-
-</ul>
-
-<h3 style="margin-top:20px">📈 Current Focus</h3>
-
-<ul class="list">
-
-<li class="item">Kubernetes</li>
-<li class="item">Cloud DevOps</li>
-<li class="item">Infrastructure Automation</li>
-
-</ul>
-
-</div>
-
+<section class="section">
+  <h2>Experience</h2>
+  <div class="experience">
+    <h3>Worldpay | 2025 – Present</h3>
+    <ul>
+      <li>Designed CI/CD pipelines using Jenkins</li>
+      <li>Managed WebSphere, JBoss, WebLogic, Tomcat</li>
+      <li>Dockerized applications & deployed on Kubernetes</li>
+      <li>Provisioned AWS using Terraform</li>
+      <li>Implemented monitoring with Prometheus & Grafana</li>
+      <li>Handled production incidents & RCA</li>
+    </ul>
+  </div>
 </section>
 
-<footer>
-Built with ❤️ • DevOps Portfolio • Dark Theme
-</footer>
+<section class="section">
+  <h2>About Me</h2>
+  <p>
+    DevOps & Middleware Engineer with 4+ years of experience in automation, cloud, and enterprise middleware systems.
+    Passionate about building scalable systems and optimizing deployments.
+  </p>
+</section>
 
-</main>
+<div class="footer">
+  <p>© 2026 Sumit | DevOps Portfolio</p>
+</div>
 
 </body>
 </html>
