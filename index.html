@@ -1,16 +1,13 @@
 <!doctype html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sumit • DevOps Engineer</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
 --bg:#0b0f17;
 --card:#0f1625cc;
@@ -107,15 +104,35 @@ padding:12px;
 border-radius:12px;
 }
 
+/* NEW SKILLS ICON GRID */
+.skills-icons{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+gap:15px;
+margin-top:15px;
+}
+
+.skill-box{
+background:#1f2937;
+padding:10px;
+border-radius:12px;
+text-align:center;
+}
+
+.skill-box img{
+width:40px;
+height:40px;
+object-fit:contain;
+margin-bottom:5px;
+}
+
 footer{
 text-align:center;
 color:var(--muted);
 font-size:12px;
 margin-top:10px;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -127,87 +144,75 @@ margin-top:10px;
 <span class="dot"></span>
 <span>DevOps Portfolio</span>
 </div>
-<div>DevOps• Automation • Middleware</div>
+<div>DevOps • Automation • Middleware</div>
 </div>
 
 <section class="hero">
 <h1>Hello I'm <span>Sumit</span> 👋</h1>
-
 <h2>
 DevOps & Middleware Engineer with experience in enterprise
 payment systems, automation and Linux infrastructure.
 </h2>
+</section>
 
+<section class="card">
+<h3>🛠 Tools & Technologies</h3>
+
+<div class="skills-icons">
+<div class="skill-box"><img src="images/docker.png"><p>Docker</p></div>
+<div class="skill-box"><img src="images/github.png"><p>GitHub</p></div>
+<div class="skill-box"><img src="images/aws.webp"><p>AWS</p></div>
+<div class="skill-box"><img src="images/terraform.webp"><p>Terraform</p></div>
+<div class="skill-box"><img src="images/kubernetes.webp"><p>Kubernetes</p></div>
+<div class="skill-box"><img src="images/jenkins.jpeg"><p>Jenkins</p></div>
+<div class="skill-box"><img src="images/grafana.jpeg"><p>Grafana</p></div>
+<div class="skill-box"><img src="images/prometheus.jpeg"><p>Prometheus</p></div>
+<div class="skill-box"><img src="images/jboss.jpeg"><p>JBoss</p></div>
+<div class="skill-box"><img src="images/tomcat.jpeg"><p>Tomcat</p></div>
+<div class="skill-box"><img src="images/websphere.jpeg"><p>WebSphere</p></div>
+<div class="skill-box"><img src="images/weblogic.jpg"><p>WebLogic</p></div>
+<div class="skill-box"><img src="images/mq.jpeg"><p>IBM MQ</p></div>
+<div class="skill-box"><img src="images/kafka.jpeg"><p>Kafka</p></div>
+<div class="skill-box"><img src="images/git.jpeg"><p>Git</p></div>
+<div class="skill-box"><img src="images/splunk.jpeg"><p>Splunk</p></div>
+</div>
+<div class="skill-box"><img src="images/github.png"><p>GitHub</p></div>
+<div class="skill-box"><img src="images/aws.png"><p>AWS</p></div>
+<div class="skill-box"><img src="images/terraform.png"><p>Terraform</p></div>
+<div class="skill-box"><img src="images/kubernetes.png"><p>Kubernetes</p></div>
+<div class="skill-box"><img src="images/jenkins.png"><p>Jenkins</p></div>
+<div class="skill-box"><img src="images/grafana.png"><p>Grafana</p></div>
+<div class="skill-box"><img src="images/prometheus.png"><p>Prometheus</p></div>
+</div>
 </section>
 
 <section class="grid">
 
 <div class="card">
 <h3>⚡ Skills & Expertise</h3>
-
 <ul class="list">
-
-<li class="item">
-<b>Middleware Administration</b><br>
-Apache HTTP, Tomcat, IBM WebSphere, WebLogic
-</li>
-
-<li class="item">
-<b>DevOps & Automation</b><br>
-Jenkins pipelines, Shell scripting automation
-</li>
-
-<li class="item">
-<b>Linux Infrastructure</b><br>
-Server management, deployments, patching
-</li>
-
-<li class="item">
-<b>Security & Integration</b><br>
-SSL configuration, LDAP integration
-</li>
-
-<li class="item">
-<b>Monitoring & Troubleshooting</b><br>
-JVM tuning, thread dump & heap dump analysis
-</li>
-
-<li class="item">
-<b>Messaging Systems</b><br>
-IBM WebSphere MQ administration
-</li>
-
+<li class="item"><b>Middleware Administration</b><br>Apache HTTP, Tomcat, IBM WebSphere, WebLogic</li>
+<li class="item"><b>DevOps & Automation</b><br>Jenkins pipelines, Shell scripting automation</li>
+<li class="item"><b>Linux Infrastructure</b><br>Server management, deployments, patching</li>
+<li class="item"><b>Security & Integration</b><br>SSL configuration, LDAP integration</li>
+<li class="item"><b>Monitoring & Troubleshooting</b><br>JVM tuning, thread dump & heap dump analysis</li>
+<li class="item"><b>Messaging Systems</b><br>IBM WebSphere MQ administration</li>
 </ul>
 </div>
 
 <div class="card">
-
 <h3>🚀 Experience</h3>
-
 <ul class="list">
-
-<li class="item">
-<b>Worldpay</b><br>
-DevOps & Middleware Engineer (Payments domain)
-</li>
-
-<li class="item">
-<b>TCS</b><br>
-Middleware & DevOps Engineer
-</li>
-
+<li class="item"><b>Worldpay</b><br>DevOps & Middleware Engineer</li>
+<li class="item"><b>TCS</b><br>Middleware & DevOps Engineer</li>
 </ul>
 
 <h3 style="margin-top:20px">📈 Current Focus</h3>
-
 <ul class="list">
-
 <li class="item">Kubernetes</li>
 <li class="item">Cloud DevOps</li>
 <li class="item">Infrastructure Automation</li>
-
 </ul>
-
 </div>
 
 </section>
