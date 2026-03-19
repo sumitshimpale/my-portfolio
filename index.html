@@ -1,212 +1,232 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sumit Shimpale | DevOps & Middleware Engineer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sumit • DevOps & Middleware Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+:root{
+  --bg1:#020617;
+  --bg2:#0f172a;
+  --glass:rgba(255,255,255,0.05);
+  --stroke:rgba(255,255,255,0.12);
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --accent:#38bdf8;
+  --accent2:#6366f1;
 }
 
-body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  overflow-x: hidden;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Space Grotesk",sans-serif;
+  color:var(--text);
+  background:radial-gradient(circle at 20% 10%, #0b1220, var(--bg1) 40%),
+             radial-gradient(circle at 80% 20%, #0b1a2e, transparent 40%),
+             linear-gradient(180deg, var(--bg2), var(--bg1));
+  overflow-x:hidden;
 }
 
-/* Floating Icons Background */
-.floating-icons img {
-  position: absolute;
-  width: 60px;
-  opacity: 0.15;
-  animation: float 20s infinite linear;
+/* subtle animated gradient blobs */
+.blob{
+  position:fixed; filter:blur(80px); opacity:.35; pointer-events:none; z-index:0;
+  width:420px; height:420px; border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  animation: drift 18s ease-in-out infinite;
+}
+.blob.b2{ left:auto; right:5%; top:30%; animation-duration:22s }
+.blob.b3{ left:10%; top:60%; animation-duration:26s }
+@keyframes drift{
+  0%,100%{ transform:translate(0,0) scale(1)}
+  50%{ transform:translate(40px,-30px) scale(1.1)}
 }
 
-@keyframes float {
-  0% { transform: translateY(100vh) rotate(0deg); }
-  100% { transform: translateY(-10vh) rotate(360deg); }
+/* NAV */
+.nav{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter: blur(10px);
+  background:rgba(2,6,23,0.5);
+  border-bottom:1px solid var(--stroke);
+}
+.nav .inner{
+  max-width:1200px; margin:auto; padding:14px 24px; display:flex; justify-content:space-between; align-items:center;
+}
+.brand{ font-weight:700; letter-spacing:.5px }
+.menu a{ color:var(--muted); text-decoration:none; margin-left:18px; font-size:14px }
+.menu a:hover{ color:var(--text) }
+
+/* SECTIONS */
+.section{ position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:80px 24px }
+
+/* HERO */
+.hero{ text-align:center; min-height:80vh; display:flex; flex-direction:column; justify-content:center }
+.hero h1{
+  font-size:64px; margin:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text; color:transparent;
+}
+.hero .typing{
+  margin-top:14px; font-size:22px; color:var(--muted);
+  border-right:2px solid var(--accent); white-space:nowrap; overflow:hidden;
+  width:0; animation: typing 4s steps(40,end) forwards, blink .8s infinite;
+}
+@keyframes typing{ to{ width: 100% } }
+@keyframes blink{ 50%{ border-color: transparent } }
+
+.cta{ margin-top:26px }
+.btn{
+  display:inline-block; margin:6px; padding:12px 22px; border-radius:12px;
+  border:1px solid var(--stroke);
+  background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  color:var(--text); text-decoration:none; transition:.3s;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:0 10px 30px rgba(56,189,248,.25); border-color:rgba(56,189,248,.6)}
+
+/* GLASS CARD */
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:26px }
+.card{
+  position:relative;
+  padding:26px; border-radius:20px;
+  background:var(--glass);
+  border:1px solid var(--stroke);
+  backdrop-filter: blur(14px);
+  transition:.35s;
+  overflow:hidden;
+}
+.card:before{
+  content:""; position:absolute; inset:-1px; border-radius:20px; opacity:0;
+  background:linear-gradient(120deg, transparent, rgba(56,189,248,.4), transparent);
+  transition:.35s;
+}
+.card:hover{ transform:translateY(-10px) scale(1.01) }
+.card:hover:before{ opacity:1 }
+.card h3{ margin-top:0 }
+
+/* SKILL TAGS */
+.tags{ display:flex; flex-wrap:wrap; gap:10px }
+.tag{
+  padding:8px 12px; border-radius:999px; font-size:13px;
+  background:rgba(148,163,184,.12); border:1px solid var(--stroke);
 }
 
-/* Glass Container */
-.container {
-  width: 85%;
-  margin: 40px auto;
-  padding: 30px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-}
+/* TIMELINE */
+.timeline{ display:grid; gap:14px }
+.titem{ padding:14px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid var(--stroke) }
+.titem b{ color:#fff }
 
-/* Header */
-.header {
-  text-align: center;
-  margin-bottom: 30px;
-}
+/* PROJECT */
+.project p{ color:var(--muted); line-height:1.7 }
 
-.header h1 {
-  font-size: 36px;
-  font-weight: 600;
-}
+footer{ text-align:center; color:var(--muted); padding:40px 0 60px }
 
-.header p {
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
-/* Section */
-.section {
-  margin-bottom: 25px;
-}
-
-.section h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  border-left: 4px solid #00c6ff;
-  padding-left: 10px;
-}
-
-.section p, .section li {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Skills Grid */
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
-}
-
-.skills div {
-  background: rgba(255,255,255,0.1);
-  padding: 10px;
-  border-radius: 10px;
-}
-
-/* Experience */
-.exp-title {
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-/* Hover effect */
-.container:hover {
-  transform: scale(1.01);
-  transition: 0.3s;
+@media(max-width:640px){
+  .hero h1{ font-size:42px }
+  .hero .typing{ font-size:18px }
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- Floating Icons -->
-<div class="floating-icons">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" style="left:10%; animation-duration:25s;">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" style="left:30%; animation-duration:30s;">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" style="left:50%; animation-duration:35s;">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" style="left:70%; animation-duration:28s;">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="left:85%; animation-duration:32s;">
-</div>
+<div class="blob" style="left:5%; top:10%"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
 
-<div class="container">
-
-  <!-- Header -->
-  <div class="header">
-    <h1>Sumit Shimpale</h1>
-    <p>DevOps & Middleware Engineer | 4+ Years Experience</p>
-    <p>📞 +91-9359069445 | 📧 sumitshimpale@gmail.com | 📍 Pune</p>
-  </div>
-
-  <!-- Summary -->
-  <div class="section">
-    <h2>Summary</h2>
-    <p>
-      DevOps & Middleware Engineer with 4+ years of experience in CI/CD automation, cloud infrastructure, and enterprise middleware platforms.
-      Skilled in AWS, Docker, Kubernetes, and Terraform for building scalable and resilient systems.
-      Strong expertise in WebSphere, JBoss, WebLogic, and Tomcat with proven ability to optimize performance,
-      streamline deployments, and maintain high availability production environments.
-    </p>
-  </div>
-
-  <!-- Skills -->
-  <div class="section">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div><b>DevOps:</b> Jenkins, GitHub Actions, Docker, Kubernetes</div>
-      <div><b>Cloud:</b> AWS (EC2, EKS, S3, ELB, Auto Scaling)</div>
-      <div><b>IaC:</b> Terraform</div>
-      <div><b>Middleware:</b> WebSphere, JBoss, WebLogic, Tomcat</div>
-      <div><b>Scripting:</b> Bash, Python</div>
-      <div><b>Monitoring:</b> Prometheus, Grafana, CloudWatch</div>
-      <div><b>Messaging:</b> MQ, Kafka</div>
-      <div><b>Security:</b> SSL, LDAP, TAM, TDS</div>
+<nav class="nav">
+  <div class="inner">
+    <div class="brand">Sumit.dev</div>
+    <div class="menu">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#project">Project</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
+</nav>
 
-  <!-- Experience -->
-  <div class="section">
-    <h2>Experience</h2>
-
-    <p class="exp-title">DevOps & Middleware Engineer – Worldpay (May 2025 – Present)</p>
-    <ul>
-      <li>Built CI/CD pipelines using GitHub Actions (cloud) and Jenkins (middleware)</li>
-      <li>Deployed containerized applications using Docker & Kubernetes</li>
-      <li>Provisioned AWS infra using Terraform (IaC)</li>
-      <li>Implemented monitoring with Prometheus, Grafana & CloudWatch</li>
-      <li>Handled production incidents ensuring 99.99% uptime</li>
-      <li>Performed JVM tuning, RCA, and performance optimization</li>
-      <li>Provided on-call support for critical systems</li>
-    </ul>
-
-    <p class="exp-title">Middleware Engineer – TCS (Dec 2021 – May 2025)</p>
-    <ul>
-      <li>Administered WebSphere, JBoss, MQ, Tomcat environments</li>
-      <li>Performed installations, patching, upgrades, and deployments</li>
-      <li>Automated tasks using Shell scripting & Jenkins</li>
-      <li>Handled issues like OOM, hung threads, MQ errors</li>
-      <li>Performed RCA using thread & heap dumps</li>
-    </ul>
-
+<section class="section hero" id="home">
+  <h1>Sumit 🚀</h1>
+  <div class="typing">DevOps & Middleware Engineer • CI/CD • Kubernetes • AWS • Automation</div>
+  <div class="cta">
+    <a class="btn" href="#">GitHub</a>
+    <a class="btn" href="#">LinkedIn</a>
+    <a class="btn" href="#">Resume</a>
   </div>
+</section>
 
-  <!-- Certifications -->
-  <div class="section">
-    <h2>Certifications</h2>
-    <ul>
-      <li>AWS Cloud Practitioner (CLF-C02)</li>
-      <li>IBM WebSphere Training</li>
-      <li>IBM MQ Admin Training</li>
-      <li>Apache Kafka Training</li>
-    </ul>
+<section class="section" id="skills">
+  <div class="grid">
+    <div class="card">
+      <h3>⚡ DevOps</h3>
+      <div class="tags">
+        <span class="tag">Jenkins</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Shell</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Middleware</h3>
+      <div class="tags">
+        <span class="tag">WebSphere</span>
+        <span class="tag">WebLogic</span>
+        <span class="tag">JBoss</span>
+        <span class="tag">Tomcat</span>
+        <span class="tag">IBM MQ</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>📊 Monitoring</h3>
+      <div class="tags">
+        <span class="tag">Prometheus</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">CloudWatch</span>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- Achievements -->
-  <div class="section">
-    <h2>Achievements</h2>
-    <ul>
-      <li>XCELERATE Warrior Award – TCS</li>
-      <li>Applause for Team Award – TCS</li>
-    </ul>
+<section class="section" id="experience">
+  <div class="grid">
+    <div class="card">
+      <h3>🚀 Experience</h3>
+      <div class="timeline">
+        <div class="titem"><b>Worldpay</b><br>DevOps & Middleware Engineer</div>
+        <div class="titem"><b>TCS</b><br>Middleware & DevOps Engineer</div>
+      </div>
+    </div>
+
+    <div class="card project" id="project">
+      <h3>🔥 Featured Project</h3>
+      <p>
+        Designed end-to-end CI/CD pipelines using Jenkins, Docker, and Kubernetes for enterprise Java applications.
+        Automated deployments across WebSphere & JBoss environments, improving release efficiency and reducing downtime.
+      </p>
+    </div>
   </div>
+</section>
 
-  <!-- Education -->
-  <div class="section">
-    <h2>Education</h2>
-    <p><b>B.E. Civil Engineering</b> – Sinhgad Institute, Pune</p>
-    <p><b>Diploma Civil Engineering</b> – Vishweshwarayya Polytechnic</p>
+<section class="section" id="contact">
+  <div class="card" style="text-align:center">
+    <h3>📬 Let's Connect</h3>
+    <p class="muted">Open for DevOps & Cloud opportunities</p>
+    <div class="cta">
+      <a class="btn" href="#">Email Me</a>
+      <a class="btn" href="#">LinkedIn</a>
+    </div>
   </div>
+</section>
 
-</div>
+<footer>
+  Built with ⚡ Glass UI • DevOps Portfolio
+</footer>
 
 </body>
 </html>
