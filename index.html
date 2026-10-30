@@ -1,287 +1,775 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sumit Shimpale • DevOps & Middleware Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sumit Shimpale | DevOps & Middleware Engineer</title>
+  
+  <!-- Fonts & CDN Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-<style>
-:root{
-  --bg1:#020617; --bg2:#0f172a; --glass:rgba(255,255,255,0.06);
-  --stroke:rgba(255,255,255,0.14); --text:#e2e8f0; --muted:#94a3b8;
-  --accent:#38bdf8; --accent2:#6366f1;
-}
+  <style>
+    :root {
+      --bg-dark: #030712;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-card-hover: rgba(31, 41, 55, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(56, 189, 248, 0.3);
+      --text-main: #f9fafb;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-indigo: #818cf8;
+      --accent-emerald: #34d399;
+      --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
 
-*{box-sizing:border-box}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-body{
-  margin:0;
-  font-family:"Space Grotesk",sans-serif;
-  font-size:22px;
-  color:var(--text);
-  background:radial-gradient(circle at 20% 10%, #0b1220, var(--bg1) 40%),
-             linear-gradient(180deg, var(--bg2), var(--bg1));
-}
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
 
-.nav{position:sticky;top:0;background:rgba(2,6,23,0.8);border-bottom:1px solid var(--stroke)}
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-.nav .inner{
-  max-width:1600px;
-  margin:auto;
-  padding:25px 60px;
-  display:flex;
-  justify-content:space-between;
-}
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 7, 18, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+    }
 
-.menu a{
-  font-size:20px;
-  margin-left:30px;
-  color:var(--muted);
-  text-decoration:none;
-}
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 74px;
+    }
 
-.menu a:hover{color:#fff}
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
 
-.section{
-  max-width:1600px;
-  margin:auto;
-  padding:120px 60px;
-}
+    .brand-badge {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-.hero{
-  text-align:center;
-  padding:160px 20px;
-}
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
 
-.hero h1{
-  font-size:110px;
-  margin:0;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  color:transparent;
-}
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
 
-.hero p{font-size:30px;color:var(--muted)}
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
 
-.btn{
-  padding:20px 40px;
-  font-size:20px;
-  border:1px solid var(--accent);
-  border-radius:12px;
-  color:var(--accent);
-  text-decoration:none;
-  margin:10px;
-  display:inline-block;
-}
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 60px;
+      text-align: center;
+    }
 
-.btn:hover{background:var(--accent);color:#000}
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--accent-emerald);
+      margin-bottom: 24px;
+    }
 
-.card{
-  padding:35px;
-  border-radius:20px;
-  background:var(--glass);
-  border:1px solid var(--stroke);
-  text-align:center;
-}
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-emerald);
+    }
 
-/* ICON GRID */
-.icons{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:25px;
-  margin-top:40px;
-}
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.icon-card{
-  background:var(--glass);
-  border:1px solid var(--stroke);
-  border-radius:20px;
-  padding:25px;
-  transition:0.3s;
-}
+    .hero-subtitle {
+      font-size: 1.35rem;
+      color: #e2e8f0;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
 
-.icon-card:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 20px rgba(56,189,248,0.4);
-}
+    .hero-meta {
+      font-size: 1rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
 
-.icon-card img{
-  width:90px;
-  height:90px;
-  object-fit:contain;
-}
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-.icon-card p{
-  margin-top:10px;
-  font-size:16px;
-}
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-footer{text-align:center;padding:60px;color:var(--muted)}
-</style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 26px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent-cyan);
+      color: #030712;
+      border: 1px solid var(--accent-cyan);
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: #fff;
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--text-muted);
+      transform: translateY(-2px);
+    }
+
+    /* Section Structure */
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-top: 4px;
+    }
+
+    /* Summary Card */
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+
+    .summary-card p {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    /* Skills Grid */
+    .skills-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all 0.25s ease;
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+      background: var(--bg-card-hover);
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .skill-icon {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    .skill-header h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      font-size: 0.82rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      transition: border-color 0.25s ease;
+    }
+
+    .exp-card:hover {
+      border-color: var(--border-glow);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .exp-role {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .exp-company {
+      font-size: 1.05rem;
+      color: var(--accent-cyan);
+      font-weight: 500;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .exp-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .exp-list li {
+      position: relative;
+      padding-left: 24px;
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
+
+    .exp-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: var(--accent-cyan);
+      font-weight: 500;
+    }
+
+    /* Dual Grid: Certifications & Achievements */
+    .dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .item-icon {
+      font-size: 1.5rem;
+      color: var(--accent-indigo);
+      background: rgba(129, 140, 248, 0.1);
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .item-details h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .item-details p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+      .section { padding: 50px 0; }
+      .summary-card, .exp-card { padding: 24px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav class="nav">
-<div class="inner">
-<div><b style="font-size:28px">Sumit Shimpale</b></div>
-<div class="menu">
-<a href="#summary">Summary</a>
-<a href="#tools">Tools</a>
-</div>
-</div>
-</nav>
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand">
+        Sumit Shimpale
+        <span class="brand-badge">DevOps / SRE</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </div>
+  </header>
 
-<section class="section hero">
-<h1>Sumit Shimpale 🚀</h1>
-<p>DevOps & Middleware Engineer • AWS • Kubernetes • CI/CD</p>
-<p>Pune | +91-9359069445 | sumitshimpale@gmail.com</p>
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Available for DevOps & Infrastructure Roles
+      </div>
+      <h1>DevOps & Middleware Engineer</h1>
+      <p class="hero-subtitle">Architecting resilient CI/CD pipelines, container orchestration, & cloud automation.</p>
+      
+      <div class="hero-meta">
+        <span><i class="fa-solid fa-location-dot"></i> Pune, India</span>
+        <span><i class="fa-solid fa-phone"></i> +91-9359069445</span>
+        <span><i class="fa-solid fa-envelope"></i> sumitshimpale@gmail.com</span>
+      </div>
 
-<div style="margin-top:40px">
-<a class="btn" href="https://github.com/sumitshimpale" target="_blank">GitHub</a>
-<a class="btn" href="https://www.linkedin.com/in/sumit-shimpale/" target="_blank">LinkedIn</a>
-</div>
-</section>
+      <div class="hero-buttons">
+        <a href="https://github.com/sumitshimpale" target="_blank" class="btn btn-primary">
+          <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
+        <a href="https://www.linkedin.com/in/sumit-shimpale/" target="_blank" class="btn btn-outline">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+        </a>
+        <a href="mailto:sumitshimpale@gmail.com" class="btn btn-outline">
+          <i class="fa-solid fa-paper-plane"></i> Contact Me
+        </a>
+      </div>
+    </section>
 
-<!-- TOOLS SECTION WITH IMAGES -->
-<section class="section" id="tools">
-<h2 style="font-size:50px">⚙️ DevOps Tools</h2>
+    <!-- SUMMARY SECTION -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <span class="section-tag">01. Overview</span>
+        <h2 class="section-title">Professional Summary</h2>
+      </div>
+      <div class="summary-card">
+        <p>
+          Results-driven <strong>DevOps Engineer with 4+ years of IT experience</strong> specializing in AWS, Kubernetes, Docker, Terraform, CI/CD, Linux, and Shell automation. Proven record in architecting zero-downtime deployment pipelines, scaling cloud infrastructure, and automating mission-critical production environments. Extensive hands-on domain expertise in configuring, securing, and troubleshooting enterprise Java middleware stacks including <strong>WebSphere, WebLogic, JBoss, Tomcat, and WebSphere MQ</strong>.
+        </p>
+      </div>
+    </section>
 
-<div class="icons">
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-tag">02. Stack</span>
+        <h2 class="section-title">Technical Expertise</h2>
+      </div>
 
-<div class="icon-card">
-<img src="images/docker.png"><p>Docker</p>
-</div>
+      <div class="skills-category-grid">
+        <!-- DevOps & CI/CD -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-infinity"></i></div>
+            <h3>CI/CD & DevOps</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Jenkins</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Git</span>
+            <span class="tag">Maven</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+          </div>
+        </div>
 
-<div class="icon-card">
-<img src="images/kubernetes.png"><p>Kubernetes</p>
-</div>
+        <!-- Cloud & IaC -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3>Cloud & IaC</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">AWS (EKS, EC2, S3, EBS)</span>
+            <span class="tag">ALB / ELB</span>
+            <span class="tag">IAM & VPC</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">Auto Scaling</span>
+            <span class="tag">Terraform</span>
+          </div>
+        </div>
 
-<div class="icon-card">
-<img src="images/aws.png"><p>AWS</p>
-</div>
+        <!-- Middleware & Messaging -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-cubes"></i></div>
+            <h3>Middleware & Messaging</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">IBM WebSphere</span>
+            <span class="tag">Oracle WebLogic</span>
+            <span class="tag">Red Hat JBoss</span>
+            <span class="tag">Apache Tomcat</span>
+            <span class="tag">IBM MQ</span>
+            <span class="tag">Apache Kafka</span>
+            <span class="tag">IBM HTTP Server (IHS)</span>
+            <span class="tag">AHS</span>
+          </div>
+        </div>
 
-<div class="icon-card">
-<img src="images/terraform.png"><p>Terraform</p>
-</div>
+        <!-- Monitoring & Observability -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Observability & Tools</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">AWS CloudWatch</span>
+            <span class="tag">Splunk</span>
+            <span class="tag">Oracle OEM</span>
+            <span class="tag">Observe</span>
+            <span class="tag">Jira</span>
+            <span class="tag">ServiceNow</span>
+            <span class="tag">BMC Remedy</span>
+          </div>
+        </div>
 
-<div class="icon-card">
-<img src="images/ansible.png"><p>Ansible</p>
-</div>
+        <!-- Scripting & OS -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-terminal"></i></div>
+            <h3>Scripting & Platforms</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Bash / Shell Scripting</span>
+            <span class="tag">Python</span>
+            <span class="tag">Linux / Unix Administration</span>
+            <span class="tag">Cron Automation</span>
+          </div>
+        </div>
 
-<div class="icon-card">
-<img src="images/github.png"><p>GitHub</p>
-</div>
+        <!-- Security & Directory -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Security & Identity</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">SSL/TLS Management</span>
+            <span class="tag">LDAP & TDS</span>
+            <span class="tag">IBM ISAM / TAM</span>
+            <span class="tag">IKeyMan</span>
+            <span class="tag">AWS IAM</span>
+            <span class="tag">K8s RBAC</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="icon-card">
-<img src="images/grafana.png"><p>Grafana</p>
-</div>
+    <!-- PROFESSIONAL EXPERIENCE SECTION -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <span class="section-tag">03. Career</span>
+        <h2 class="section-title">Work Experience</h2>
+      </div>
 
-<div class="icon-card">
-<img src="images/Prometheus.png"><p>Prometheus</p>
-</div>
+      <div class="timeline">
+        <!-- WORLDPAY -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">DevOps Engineer</div>
+              <div class="exp-company">Worldpay Pvt. Ltd. • Pune, India</div>
+            </div>
+            <div class="exp-date">May 2025 – Present</div>
+          </div>
+          <ul class="exp-list">
+            <li>Engineered and maintained robust CI/CD pipelines using <span class="highlight">Jenkins and GitHub Actions</span> for 15+ Java microservices, reducing release cycle duration by <span class="highlight">35%</span>.</li>
+            <li>Containerized enterprise services with Docker and orchestrated deployments on Kubernetes (<span class="highlight">Amazon EKS</span>) ensuring seamless blue-green / rolling upgrades.</li>
+            <li>Standardized multi-region cloud infrastructure using modular <span class="highlight">Terraform</span> (EKS, EC2, ALB, VPC), slashing environment rollout times from days to under <span class="highlight">45 minutes</span>.</li>
+            <li>Integrated comprehensive observability dashboards using <span class="highlight">Prometheus, Grafana, and CloudWatch</span>, dropping Mean Time to Detect (MTTD) by <span class="highlight">30%</span> across production workloads.</li>
+            <li>Authored custom Shell automation scripts for deployment validation, log parsing, and operational health checks across <span class="highlight">400+ production instances</span>.</li>
+            <li>Managed Kubernetes workloads and policies including ConfigMaps, Secrets, Ingress Controllers, Service Accounts, and granular RBAC.</li>
+            <li>Resolved production incidents, conducted Root Cause Analysis (RCA), handled JVM dump profiling, and drove disaster recovery (DR) operations.</li>
+          </ul>
+        </div>
 
-<div class="icon-card">
-<img src="images/jboss.png"><p>JBoss</p>
-</div>
+        <!-- TCS -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">DevOps Engineer</div>
+              <div class="exp-company">Tata Consultancy Services Limited (TCS) • Pune, India</div>
+            </div>
+            <div class="exp-date">Dec 2021 – May 2025</div>
+          </div>
+          <ul class="exp-list">
+            <li>Administered and tuned high-availability enterprise middleware platforms (<span class="highlight">IBM WebSphere, JBoss, Tomcat, IBM MQ</span>) across 200+ instances, maintaining <span class="highlight">99.9% uptime</span> for tier-1 banking systems.</li>
+            <li>Built automated Jenkins pipelines for software delivery, handling rollback mechanisms and deployment verification.</li>
+            <li>Automated server patching, log rotations, and health verifications via cron jobs and Shell scripts, reducing administrative manual effort by <span class="highlight">40%</span>.</li>
+            <li>Diagnosed critical P1/P2 incidents (Out Of Memory errors, thread deadlocks, GC spikes) through heap and thread dump inspection, reducing Mean Time to Resolution (MTTR) by <span class="highlight">25%</span>.</li>
+            <li>Supervised SSL/TLS certificate lifecycles, user directory integrations (LDAP), and production vulnerability hardening.</li>
+            <li>Supported cloud migration and hybrid workloads on AWS (EC2, EKS, ALB, IAM, CloudWatch).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<div class="icon-card">
-<img src="images/kafka.png"><p>Kafka</p>
-</div>
+    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+    <section class="section" id="certifications">
+      <div class="section-header">
+        <span class="section-tag">04. Recognition</span>
+        <h2 class="section-title">Certifications & Honors</h2>
+      </div>
 
-<div class="icon-card">
-<img src="images/weblogic.png"><p>WebLogic</p>
-</div>
+      <div class="dual-grid">
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="item-details">
+            <h4>AWS Certified Cloud Practitioner</h4>
+            <p>CLF-C02 • Amazon Web Services</p>
+          </div>
+        </div>
 
-<div class="icon-card">
-<img src="images/1721662869-20240722-was-img.jpeg"><p>WebSphere</p>
-</div>
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="item-details">
+            <h4>IBM WebSphere Application Server</h4>
+            <p>Enterprise System Administration</p>
+          </div>
+        </div>
 
-</div>
-</section>
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="item-details">
+            <h4>IBM MQ System Administration</h4>
+            <p>Enterprise Message Queue Infrastructure</p>
+          </div>
+        </div>
 
-<section class="section" id="summary">
-<div class="card">
-<h2 style="font-size:40px">Summary</h2>
-<p style="font-size:22px">
-DevOps & Middleware Engineer with 4+ years of experience in CI/CD, automation, and AWS.
-</p>
-</div>
-</section>
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="item-details">
+            <h4>Apache Kafka Administration</h4>
+            <p>Distributed Streaming & Architecture</p>
+          </div>
+        </div>
 
-<!-- EXPERIENCE -->
-<section class="section" id="experience">
-<h2 style="font-size:50px">🚀 Experience</h2>
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="item-details">
+            <h4>XCELERATE Warrior Award</h4>
+            <p>Awarded by Tata Consultancy Services (TCS)</p>
+          </div>
+        </div>
 
-<div class="icons">
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="item-details">
+            <h4>Applause for Team Award</h4>
+            <p>Excellence in operational delivery at TCS</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="icon-card" style="text-align:left">
-<h3>Worldpay (2025–Present)</h3>
-<ul>
-<li>CI/CD pipelines using GitHub Actions & Jenkins</li>
-<li>Managed WebSphere, JBoss, WebLogic, Tomcat</li>
-<li>Docker + Kubernetes deployments</li>
-<li>AWS (EC2, EKS, S3, ELB) via Terraform</li>
-<li>Monitoring: CloudWatch, Prometheus, Grafana</li>
-<li>Shell scripting for health monitoring</li>
-<li>Handled production incidents (OOM, MQ, CPU)</li>
-<li>99.99% uptime & performance tuning</li>
-<li>Cost optimization (~20% savings)</li>
-</ul>
-</div>
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="section-header">
+        <span class="section-tag">05. Background</span>
+        <h2 class="section-title">Education</h2>
+      </div>
 
-<div class="icon-card" style="text-align:left">
-<h3>TCS (2021–2025)</h3>
-<ul>
-<li>Administered WebSphere, JBoss, MQ, Tomcat</li>
-<li>Install, patch, upgrade middleware systems</li>
-<li>Jenkins-based deployments</li>
-<li>JVM tuning & RCA (heap/thread dumps)</li>
-<li>Automation via shell scripting & cron jobs</li>
-<li>LDAP, SSL, security configurations</li>
-<li>Handled OOM, MQRC, CPU & thread issues</li>
-<li>24/7 production support</li>
-</ul>
-</div>
+      <div class="dual-grid">
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="item-details">
+            <h4>Bachelor of Engineering (B.E.)</h4>
+            <p>Sinhgad Institute of Technology & Science, Pune (2018 – 2021)</p>
+          </div>
+        </div>
 
-</div>
-</section>
+        <div class="item-card">
+          <div class="item-icon"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="item-details">
+            <h4>Diploma in Engineering</h4>
+            <p>Vishweshwarayya Polytechnic, Latur (2015 – 2018)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- CERTIFICATIONS -->
-<section class="section">
-<h2 style="font-size:50px">🏆 Certifications</h2>
-<div class="icons">
-<div class="icon-card">AWS Cloud Practitioner</div>
-<div class="icon-card">IBM WebSphere Training</div>
-<div class="icon-card">IBM MQ Admin</div>
-<div class="icon-card">Kafka Training</div>
-</div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section class="section">
-<h2 style="font-size:50px">🎯 Achievements</h2>
-<div class="card">
-<ul>
-<li>XCELERATE Warrior Award – TCS</li>
-<li>Applause for Team Award – TCS</li>
-</ul>
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section class="section">
-<h2 style="font-size:50px">🎓 Education</h2>
-<div class="icons">
-<div class="icon-card">B.E Civil Engineering – Sinhgad Institute, Pune</div>
-<div class="icon-card">Diploma – Vishweshwarayya Polytechnic</div>
-</div>
-</section>
-
-<footer>
-Built with ⚡ by Sumit Shimpale
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Sumit Shimpale. Crafted for high-scale reliability.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
