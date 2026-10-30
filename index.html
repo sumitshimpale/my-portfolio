@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <!-- Devicon CDN for Crisp Original Vector Logos -->
+  <!-- Devicon CDN for Vector Logos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <style>
     :root {
       --bg-dark: #030712;
       --bg-card: rgba(15, 23, 42, 0.6);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
       --border-color: rgba(255, 255, 255, 0.08);
       --text-main: #f9fafb;
       --text-muted: #94a3b8;
@@ -25,9 +25,9 @@
       --accent-indigo: #818cf8;
       --accent-emerald: #34d399;
       --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      --radius-sm: 10px;
+      --radius-sm: 8px;
       --radius-md: 16px;
-      --radius-lg: 24px;
+      --radius-lg: 20px;
     }
 
     * {
@@ -56,7 +56,7 @@
       padding: 0 24px;
     }
 
-    /* Header & Navigation */
+    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -96,7 +96,7 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 28px;
       list-style: none;
     }
 
@@ -220,148 +220,33 @@
       transform: translateY(-2px);
     }
 
-    /* Section Header */
+    /* Section Structure */
     .section {
-      padding: 70px 0;
+      padding: 65px 0;
     }
 
     .section-header {
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
 
     .section-pill-tag {
       display: inline-block;
-      padding: 5px 14px;
+      padding: 4px 12px;
       background: rgba(56, 189, 248, 0.12);
       border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: 999px;
       font-family: 'JetBrains Mono', monospace;
       color: var(--accent-cyan);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.5px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .section-title {
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: -0.5px;
-    }
-
-    /* ==============================================================
-       GLASS FINISH TOOL CARDS (From Reference Layout)
-       ============================================================== */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
-      gap: 20px;
-    }
-
-    .glass-tool-card {
-      position: relative;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-lg);
-      padding: 24px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden;
-    }
-
-    /* Subtle lighting on top border */
-    .glass-tool-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    }
-
-    /* Glow Hover Accent Variations */
-    .glass-tool-card:hover {
-      transform: translateY(-5px);
-      background: rgba(30, 41, 59, 0.8);
-      border-color: rgba(56, 189, 248, 0.5);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 24px rgba(56, 189, 248, 0.2);
-    }
-
-    /* The 3D Glass Icon Tile */
-    .glass-icon-wrapper {
-      position: relative;
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .glass-tool-card:hover .glass-icon-wrapper {
-      transform: scale(1.08);
-    }
-
-    .glass-icon-wrapper i {
-      font-size: 34px;
-      transition: transform 0.3s ease;
-    }
-
-    /* Glow reflections by tool theme */
-    .glow-cyan { border-color: rgba(56, 189, 248, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(56, 189, 248, 0.35); }
-    .glow-cyan i { color: #38bdf8; }
-
-    .glow-blue { border-color: rgba(59, 130, 246, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(59, 130, 246, 0.35); }
-    .glow-blue i { color: #60a5fa; }
-
-    .glow-orange { border-color: rgba(249, 115, 22, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(249, 115, 22, 0.35); }
-    .glow-orange i { color: #fb923c; }
-
-    .glow-purple { border-color: rgba(168, 85, 247, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(168, 85, 247, 0.35); }
-    .glow-purple i { color: #c084fc; }
-
-    .glow-red { border-color: rgba(239, 68, 68, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(239, 68, 68, 0.35); }
-    .glow-red i { color: #f87171; }
-
-    .glow-indigo { border-color: rgba(99, 102, 241, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(99, 102, 241, 0.35); }
-    .glow-indigo i { color: #818cf8; }
-
-    .glow-white { border-color: rgba(255, 255, 255, 0.3); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2); }
-    .glow-white i { color: #ffffff; }
-
-    .tool-info {
-      width: 100%;
-    }
-
-    .tool-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-      letter-spacing: -0.3px;
-    }
-
-    .tool-category-badge {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
     }
 
     /* Summary Card */
@@ -369,28 +254,214 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 34px;
+      padding: 30px;
       backdrop-filter: blur(12px);
     }
 
     .summary-card p {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       color: #cbd5e1;
       line-height: 1.8;
+    }
+
+    /* ==============================================================
+       GLASS FINISH TOOL CARDS (Compact Icon Size & Polished Glow)
+       ============================================================== */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .glass-tool-card {
+      position: relative;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    .glass-tool-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    }
+
+    .glass-tool-card:hover {
+      transform: translateY(-4px);
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+
+    /* Scaled down icon wrapper */
+    .glass-icon-wrapper {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 6px 14px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s ease;
+    }
+
+    .glass-tool-card:hover .glass-icon-wrapper {
+      transform: scale(1.06);
+    }
+
+    /* Scaled down icon font size */
+    .glass-icon-wrapper i {
+      font-size: 24px;
+    }
+
+    /* Glow presets */
+    .glow-cyan { border-color: rgba(56, 189, 248, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(56, 189, 248, 0.3); }
+    .glow-cyan i { color: #38bdf8; }
+
+    .glow-blue { border-color: rgba(59, 130, 246, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(59, 130, 246, 0.3); }
+    .glow-blue i { color: #60a5fa; }
+
+    .glow-orange { border-color: rgba(249, 115, 22, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(249, 115, 22, 0.3); }
+    .glow-orange i { color: #fb923c; }
+
+    .glow-purple { border-color: rgba(168, 85, 247, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(168, 85, 247, 0.3); }
+    .glow-purple i { color: #c084fc; }
+
+    .glow-red { border-color: rgba(239, 68, 68, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(239, 68, 68, 0.3); }
+    .glow-red i { color: #f87171; }
+
+    .glow-indigo { border-color: rgba(99, 102, 241, 0.4); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(99, 102, 241, 0.3); }
+    .glow-indigo i { color: #818cf8; }
+
+    .glow-white { border-color: rgba(255, 255, 255, 0.25); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 14px rgba(255, 255, 255, 0.2); }
+    .glow-white i { color: #ffffff; }
+
+    .tool-info {
+      width: 100%;
+    }
+
+    .tool-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: -0.2px;
+    }
+
+    .tool-category-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    /* ==============================================================
+       TECHNICAL EXPERTISE (Categorized Skill Cards with Tag Clouds)
+       ============================================================== */
+    .skills-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .skill-icon {
+      font-size: 1.15rem;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .skill-header h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      font-size: 0.8rem;
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .tag:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
     }
 
     /* Experience Timeline */
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 24px;
     }
 
     .exp-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 30px;
       backdrop-filter: blur(12px);
       transition: border-color 0.25s ease;
     }
@@ -405,25 +476,25 @@
       align-items: flex-start;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .exp-role {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #fff;
     }
 
     .exp-company {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--accent-cyan);
       font-weight: 500;
     }
 
     .exp-date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      padding: 5px 14px;
+      font-size: 0.82rem;
+      padding: 4px 12px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
@@ -434,14 +505,14 @@
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .exp-list li {
       position: relative;
-      padding-left: 24px;
+      padding-left: 22px;
       color: #cbd5e1;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
     .exp-list li::before {
@@ -457,18 +528,18 @@
       font-weight: 500;
     }
 
-    /* Dual Grid for Certifications/Education */
+    /* Dual Grid for Recognition & Education */
     .dual-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
 
     .item-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 24px;
+      padding: 22px;
       display: flex;
       gap: 16px;
       align-items: flex-start;
@@ -478,17 +549,17 @@
 
     .item-card:hover {
       border-color: rgba(129, 140, 248, 0.4);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
     .item-icon {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--accent-indigo);
       background: rgba(129, 140, 248, 0.1);
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -496,30 +567,31 @@
     }
 
     .item-details h4 {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .item-details p {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border-color);
-      padding: 40px 0;
+      padding: 36px 0;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 60px;
+      font-size: 0.88rem;
+      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .hero h1 { font-size: 2.3rem; }
+      .hero h1 { font-size: 2.2rem; }
       .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-category-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -539,6 +611,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#tools">Tools</a></li>
+        <li><a href="#skills">Expertise</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#education">Education</a></li>
@@ -588,7 +661,7 @@
       </div>
     </section>
 
-    <!-- GLASS FINISH TOOLS & TECH STACK (Matching Design Reference) -->
+    <!-- 02. GLASS FINISH TOOLS & TECH STACK (Compact Icons) -->
     <section class="section" id="tools">
       <div class="section-header">
         <span class="section-pill-tag">02. STACK</span>
@@ -618,7 +691,7 @@
           </div>
         </div>
 
-        <!-- AWS -->
+        <!-- AWS Cloud -->
         <div class="glass-tool-card">
           <div class="glass-icon-wrapper glow-orange">
             <i class="devicon-amazonwebservices-plain-wordmark"></i>
@@ -662,7 +735,7 @@
           </div>
         </div>
 
-        <!-- GitHub / Actions -->
+        <!-- GitHub Actions -->
         <div class="glass-tool-card">
           <div class="glass-icon-wrapper glow-white">
             <i class="devicon-github-original"></i>
@@ -761,7 +834,7 @@
           </div>
         </div>
 
-        <!-- Linux & Shell -->
+        <!-- Linux & Bash -->
         <div class="glass-tool-card">
           <div class="glass-icon-wrapper glow-cyan">
             <i class="devicon-linux-plain"></i>
@@ -774,10 +847,119 @@
       </div>
     </section>
 
+    <!-- 03. TECHNICAL EXPERTISE (Exact Layout from Screenshot) -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-pill-tag">03. SKILLS</span>
+        <h2 class="section-title">Technical Expertise</h2>
+      </div>
+
+      <div class="skills-category-grid">
+        <!-- CI/CD & DevOps -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-infinity"></i></div>
+            <h3>CI/CD & DevOps</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Jenkins</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Git</span>
+            <span class="tag">Maven</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+          </div>
+        </div>
+
+        <!-- Cloud & IaC -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3>Cloud & IaC</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">AWS (EKS, EC2, S3, EBS)</span>
+            <span class="tag">ALB / ELB</span>
+            <span class="tag">IAM & VPC</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">Auto Scaling</span>
+            <span class="tag">Terraform</span>
+          </div>
+        </div>
+
+        <!-- Middleware & Messaging -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-cubes"></i></div>
+            <h3>Middleware & Messaging</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">IBM WebSphere</span>
+            <span class="tag">Oracle WebLogic</span>
+            <span class="tag">Red Hat JBoss</span>
+            <span class="tag">Apache Tomcat</span>
+            <span class="tag">IBM MQ</span>
+            <span class="tag">Apache Kafka</span>
+            <span class="tag">IBM HTTP Server (IHS)</span>
+            <span class="tag">AHS</span>
+          </div>
+        </div>
+
+        <!-- Observability & Tools -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Observability & Tools</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">AWS CloudWatch</span>
+            <span class="tag">Splunk</span>
+            <span class="tag">Oracle OEM</span>
+            <span class="tag">Observe</span>
+            <span class="tag">Jira</span>
+            <span class="tag">ServiceNow</span>
+            <span class="tag">BMC Remedy</span>
+          </div>
+        </div>
+
+        <!-- Scripting & Platforms -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-terminal"></i></div>
+            <h3>Scripting & Platforms</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Bash / Shell Scripting</span>
+            <span class="tag">Python</span>
+            <span class="tag">Linux / Unix Administration</span>
+            <span class="tag">Cron Automation</span>
+          </div>
+        </div>
+
+        <!-- Security & Identity -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Security & Identity</h3>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">SSL/TLS Management</span>
+            <span class="tag">LDAP & TDS</span>
+            <span class="tag">IBM ISAM / TAM</span>
+            <span class="tag">IKeyMan</span>
+            <span class="tag">AWS IAM</span>
+            <span class="tag">K8s RBAC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <div class="section-header">
-        <span class="section-pill-tag">03. CAREER</span>
+        <span class="section-pill-tag">04. CAREER</span>
         <h2 class="section-title">Work Experience</h2>
       </div>
 
@@ -828,7 +1010,7 @@
     <!-- CERTIFICATIONS & ACHIEVEMENTS -->
     <section class="section" id="certifications">
       <div class="section-header">
-        <span class="section-pill-tag">04. RECOGNITION</span>
+        <span class="section-pill-tag">05. RECOGNITION</span>
         <h2 class="section-title">Certifications & Honors</h2>
       </div>
 
@@ -886,7 +1068,7 @@
     <!-- EDUCATION -->
     <section class="section" id="education">
       <div class="section-header">
-        <span class="section-pill-tag">05. BACKGROUND</span>
+        <span class="section-pill-tag">06. BACKGROUND</span>
         <h2 class="section-title">Education</h2>
       </div>
 
